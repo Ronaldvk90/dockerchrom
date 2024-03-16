@@ -1,0 +1,15 @@
+version: "3"
+services:
+  chromebrowser:
+    env_file: environment.env
+    build: .
+    restart: unless-stopped
+    image: browser:1.0 
+    cap_add:
+      - NET_ADMIN
+    network_mode: "host"
+    volumes:
+      - home:/home
+volumes:
+  home:
+    external: false
